@@ -1,0 +1,20 @@
+{% extends 'base.html.twig' %}
+
+{% block principal %}
+  <form action="../Controller/grabaArticulo.php"  enctype="multipart/form-data" method="POST">
+      <div class="panel panel-default">
+          <div class="panel-heading text-center">
+      <input type="text" size="40" placeholder="Titulo" name="titulo">
+          </div>
+            <div class="panel-body text-center">
+                <textarea type="text"cols="60" rows="6" name="contenido" placeholder="Contenido"></textarea>
+      </div>
+      <button type="submit" class="btn btn-success center-block" name="accion" value="Aceptar">
+          <span class="glyphicon glyphicon-ok"></span> Nueva Entrada
+      </button><br>
+          <a class="btn btn-danger center-block" href="../index.php" role="button">
+          <span class="glyphicon glyphicon-remove"></span>Cancelar
+        </a>
+    </form>
+{% endblock %}
+      

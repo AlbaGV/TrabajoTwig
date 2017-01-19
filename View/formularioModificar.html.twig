@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+
+{% block principal %}
+  <form action="../Controller/modificaArticulo.php"  enctype="multipart/form-data" method="POST">
+      <div class="panel panel-default">
+          <div class="panel-heading text-center">
+      <input type="text" size="40" placeholder="Titulo" name="titulo" value="<?=$datosArticulo->getTitulo()?>" >
+          </div>
+            <div class="panel-body text-center">
+                <textarea type="text"cols="60" rows="6" name="contenido" placeholder="Contenido"><?=$datosArticulo->getContenido()?></textarea>
+      </div>
+      <input type="hidden" name="id" value="<?=$datosArticulo->getId()?>">    
+      <button type="submit" class="btn btn-success center-block" name="accion" value="Aceptar">
+          <span class="glyphicon glyphicon-ok"></span> Modificar Entrada
+      </button><br>
+          <a class="btn btn-danger center-block" href="../index.php" role="button">
+          <span class="glyphicon glyphicon-remove"></span>Cancelar
+        </a>
+    </form>
+
+{% endblock %}
+       
