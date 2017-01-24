@@ -1,26 +1,26 @@
 {% extends 'base.html.twig' %}
 
 {% block principal %}
-  <a class="btn btn-success center-block" href="../Controller/nuevoArticulo.php" role="button">
+<a class="btn btn-success center-block" href="../Controller/nuevoArticulo.php" role="button">
           <span class="glyphicon glyphicon-ok"></span>Nueva Entrada
         </a>
   <hr>
-  <?php
-    foreach($data['articulos'] as $articulo)  {
-    ?>
+{% for articulo in articulos %}
+  
       <div class="panel panel-primary">
           <div class="panel-heading text-center">
-                <h3>{{titulo}}</h3>
+                <h3>{{articulo.titulo}}</h3>
             </div>
             <div class="panel-body text-center">
-                <p>Articulo publicado en: {{fecha}}</p><br>
-                <p>{{contenido}}</p><br>
-                <a class="btn btn-danger center-block" href="../Controller/borraArticulo.php?id=<?=$articulo->getId()?>" role="button">
+                <p>Articulo publicado en: {{articulo.fecha}}</p><br>
+                <p>{{articulo.contenido}}</p><br>
+                <a class="btn btn-danger center-block" href="../Controller/borraArticulo.php?id={{articulo.id}}" role="button">
                     <span class="glyphicon glyphicon-remove"></span>Borrar
                   </a>
-                <a class="btn btn-info center-block" href="../Controller/cargaFormulario.php?id=<?=$articulo->getId()?>" role="button">
+                <a class="btn btn-info center-block" href="../Controller/modificaArticulo.php?id={{articulo.id}}" name="borrarArticulo" role="button">
                     <span class="glyphicon glyphicon-pencil"></span>Modificar
                   </a>
             </div>
-      </div>    
+      </div>  
+{% endfor %}  
 {% endblock %}

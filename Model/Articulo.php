@@ -31,6 +31,31 @@ class Articulo {
     return $this->fecha;
   }  
   
+   // Funcion setter para modificar todos los atributos. En caso de que haya alguno que no se quiera
+    // modificar simplemente se deja en blanco con comillas
+    public function setter($titulo="", $contenido="", $fecha="") {
+        
+        // Si el titulo no esta vacio ni es nulo, se lo asignamos como atributo
+        if ($titulo !== "" && $titulo !== null) {
+            $this->titulo = $titulo;
+        }
+        
+        
+        if ($contenido !== "" && $contenido !== null) {
+            $this->contenido = $contenido;
+        }
+        
+        
+        
+        // Si el titulo no esta vacio ni es nulo, se lo asignamos como atributo
+        if ($fecha !== "" && $fecha !== null) {
+            $this->fecha = $fecha;
+        }
+        
+        
+        
+    }
+  
   public function insert() {
     $conexion = BlogDB::connectDB();
     $insercion = "INSERT INTO articulo (titulo, contenido) VALUES (\"".$this->titulo."\", \"".$this->contenido."\")";

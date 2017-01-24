@@ -4,13 +4,9 @@
   Twig_Autoloader::register();
   $loader = new Twig_Loader_Filesystem(__DIR__.'/../View');
   $twig = new Twig_Environment($loader);
-  foreach($data['articulos'] as $articulo)  {
+  
 
-      $articulo = [
-        'titulo' => 'getTitulo()',
-        'fecha' => 'getFecha()',
-        'contenido' => 'getContenido()',
-        ];
-  }
-
-  echo $twig->render('listado.html.twig', $articulo);
+// Guardamos en data la lista de objetos que nos devuelve la base de datos.
+$data["articulos"] = Articulo::getArticulos();
+// Mostramos el listado usando la plantilla twig
+echo $twig->render('listado.html.twig', $data);

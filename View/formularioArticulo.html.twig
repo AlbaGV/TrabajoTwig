@@ -1,13 +1,13 @@
 {% extends 'base.html.twig' %}
 
 {% block principal %}
-  <form action="../Controller/grabaArticulo.php"  enctype="multipart/form-data" method="POST">
+  <form action="../Controller/nuevoArticulo.php"  enctype="multipart/form-data" method="POST">
       <div class="panel panel-default">
           <div class="panel-heading text-center">
-      <input type="text" size="40" placeholder="Titulo" name="titulo">
+      <input type="text" size="40" placeholder="Titulo" name="tituloAdd">
           </div>
             <div class="panel-body text-center">
-                <textarea type="text"cols="60" rows="6" name="contenido" placeholder="Contenido"></textarea>
+                <textarea type="text"cols="60" rows="6" name="contenidoAdd" placeholder="Contenido"></textarea>
       </div>
       <button type="submit" class="btn btn-success center-block" name="accion" value="Aceptar">
           <span class="glyphicon glyphicon-ok"></span> Nueva Entrada
