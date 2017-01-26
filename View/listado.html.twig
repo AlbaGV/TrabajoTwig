@@ -14,12 +14,17 @@
             <div class="panel-body text-center">
                 <p>Articulo publicado en: {{articulo.fecha}}</p><br>
                 <p>{{articulo.contenido}}</p><br>
-                <a class="btn btn-danger center-block" href="../Controller/borraArticulo.php?id={{articulo.id}}" role="button">
-                    <span class="glyphicon glyphicon-remove"></span>Borrar
-                  </a>
-                <a class="btn btn-info center-block" href="../Controller/modificaArticulo.php?id={{articulo.id}}" name="borrarArticulo" role="button">
-                    <span class="glyphicon glyphicon-pencil"></span>Modificar
-                  </a>
+                <form class="inline" action="../Controller/borraArticulo.php" method="post">
+                    <input class="btn btn-danger" type="submit" name="borrarArticulo" value="Borrar">
+                    <input type="hidden" name="deleteId" value="{{ articulo.id }}">
+                </form>
+                <form class="inline" action="../Controller/modificaArticulo.php" method="post">
+                    <input class="btn btn-primary" type="submit" value="Modificar">
+                    <input type="hidden" name="updateId" value="{{ articulo.id }}">
+                    <input type="hidden" name="updateTitulo" value="{{ articulo.titulo }}">
+                    <input type="hidden" name="updateContenido" value="{{ articulo.contenido }}">
+                    
+                </form>
             </div>
       </div>  
 {% endfor %}  

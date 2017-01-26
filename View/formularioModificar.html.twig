@@ -4,13 +4,13 @@
   <form action="../Controller/modificaArticulo.php"  enctype="multipart/form-data" method="POST">
       <div class="panel panel-default">
           <div class="panel-heading text-center">
-      <input type="text" size="40" placeholder="Titulo" name="updateTitulo" value="{{articulo.titulo}}" >
+      <input type="text" size="40" placeholder="Titulo" name="updateTitulo" value="{{titulo}}" >
           </div>
             <div class="panel-body text-center">
-                <textarea type="text"cols="60" rows="6" name="updateContenido" placeholder="Contenido">{{articulo.contenido}}</textarea>
+                <textarea type="text"cols="60" rows="6" name="updateContenido" placeholder="Contenido">{{contenido}}</textarea>
       </div>
-      <input type="hidden" name="updateId" value="{{ articulo.id }}">   
-      <button type="submit" class="btn btn-success center-block" name="modificar" value="Aceptar">
+      <input type="hidden" name="updateId" value="{{id}}">   
+      <button type="submit" class="btn btn-success center-block" name="update" value="Modificar">
           <span class="glyphicon glyphicon-ok"></span> Modificar Entrada
       </button><br>
           <a class="btn btn-danger center-block" href="../index.php" role="button">

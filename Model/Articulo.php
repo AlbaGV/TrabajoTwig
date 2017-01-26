@@ -71,6 +71,7 @@ class Articulo {
   public function update() {
     $conexion = BlogDB::connectDB();
     $modificado = "UPDATE articulo SET titulo = \"".$this->titulo."\", contenido = \"".$this->contenido."\" WHERE id = \"".$this->id."\"";
+
     $conexion->exec($modificado);
   }
   

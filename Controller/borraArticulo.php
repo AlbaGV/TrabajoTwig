@@ -7,7 +7,7 @@ require '../Model/Articulo.php';
 if (isset($_POST["borrarArticulo"])) {
     
     // Recogemos el articulo deseado de la base de datos por su ID
-    $articulo = Articulo::getArticuloById($_POST["id"]);
+    $articulo = Articulo::getArticulosById($_POST["deleteId"]);
     
     // Procedemos a borrar el articulo escogido
     $articulo->delete();

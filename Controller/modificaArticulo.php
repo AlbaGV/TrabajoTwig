@@ -7,16 +7,18 @@ Twig_Autoloader::register();
 $loader = new Twig_Loader_Filesystem(__DIR__.'/../View');
 $twig = new Twig_Environment($loader);
 // Si el formulario ha sido mandado procedemos a modificar el registro en la base de datos
-if (isset($_POST["modificar"])) {
+if (isset($_POST["update"])) {
     
     // Recogemos el articulo deseado de la base de datos por su ID
-    $articulo = Articulo::getArticuloById($_POST["id"]);
+    $articulo = Articulo::getArticulosById($_POST["updateId"]);
     
-    // Modificamos los atributos del objeto articulo que extrajimos anteriormente
-    $articulo->setter($_POST["tituloUpdate"], $_POST["contenidoUpdate"], $fecha);
     
+    
+    $articulo->setter($_POST["updateTitulo"], $_POST["updateContenido"]);
     // Le hacemos un update para modificarlo en la base de datos
     $articulo->update();
+    
+   
     
     // Regresamos a index
     header('Location: ../Controller/index.php');
